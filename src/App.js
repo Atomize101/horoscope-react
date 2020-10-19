@@ -16,10 +16,9 @@ function App() {
 	return (
 		<div className="App">
 			<h1>The Horoscope App</h1>
-			{selectedSign}
 			{!selectedSign && <SelectSign onSignSelected={setSelectedSign} />}
-			{selectedSign && <SelectTimeFrame onTimeFrameSelected={setSelectedTimeFrame} />}
-			{selectedTimeFrame && <Horoscope sign={SelectSign} timeframe={selectedTimeFrame} />}
+			{selectedSign && !selectedTimeFrame && <SelectTimeFrame onTimeFrameSelected={setSelectedTimeFrame} />}
+			{selectedTimeFrame && <Horoscope sign={selectedSign} timeframe={selectedTimeFrame} />}
 			<button onClick={restart}>Restart</button>
 		</div>
 	);
