@@ -7,12 +7,18 @@ function App() {
 	const [selectedSign, setSelectedSign] = useState(null);
 	const [selectedTimeFrame, setSelectedTimeFrame] = useState(null);
 
+	const restart = () => {
+		setSelectedSign(null);
+		setSelectedTimeFrame(null);
+	};
+
 	return (
 		<div className="App">
 			<h1>The Horoscope App</h1>
 			{selectedSign}
-			<SelectSign onSignSelected={setSelectedSign} />
-			<SelectTimeFrame onTimeFrameSelected={setSelectedTimeFrame} />
+			{!selectedSign && <SelectSign onSignSelected={setSelectedSign} />}
+			{selectedSign && <SelectTimeFrame onTimeFrameSelected={setSelectedTimeFrame} />}
+			<button onClick={restart}>Restart</button>
 		</div>
 	);
 }
