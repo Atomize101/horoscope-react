@@ -12,9 +12,15 @@ function App() {
 
 	return (
 		<div className="App">
-			{signs.map((sign) => (
-				<button key={sign}>{sign}</button>
-			))}
+			<h1>The Horoscope App</h1>
+			<h2>Please select a sign</h2>
+			<div className="grid">
+				{signs.map((sign) => (
+					<button className="sign" key={sign}>
+						{sign}
+					</button>
+				))}
+			</div>
 		</div>
 	);
 }
